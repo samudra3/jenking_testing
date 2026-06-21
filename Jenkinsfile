@@ -6,7 +6,7 @@ pipeline{
       stages{
             stage('system-info'){
                   steps{
-                        echo 'checking system-info for the user ${NAME} and the roll no ${ROLL_NO}'
+                        echo "checking system-info for the user ${NAME} and the roll no ${ROLL_NO}"
                         sh '''
                            pwd
                            whoami
