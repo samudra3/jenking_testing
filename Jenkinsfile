@@ -3,6 +3,7 @@ pipeline{
       environment{
             NAME = 'sahilsingh'
             ROLL_NO = '2237400'
+      }
       stages{
             stage('system-info'){
                   steps{
