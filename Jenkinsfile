@@ -1,14 +1,5 @@
 pipeline{
       agent any
-      environment{
-            NAME = 'sahilsingh'
-            ROLL_NO = '2237400'
-      }
-      stages{
-            stage('system-info'){
-                   steps{
-                        pipeline{
-      agent any
       parameters{
             choice(
                   name: 'ENVIRONMENT',
@@ -42,29 +33,6 @@ pipeline{
                   steps{
                         echo "deployment for ${params.ENVIRONMENT}"
                         
-                  }
-            }
-
-      }
-}
-                  }
-            }
-
-             stage('files'){
-                  steps{
-                        echo 'checking files'
-                        sh '''
-                           ls -la
-                           '''
-                  }
-            }
-
-             stage('date'){
-                  steps{
-                        echo 'checking date'
-                        sh '''
-                           date
-                           '''
                   }
             }
 
