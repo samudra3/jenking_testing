@@ -6,12 +6,47 @@ pipeline{
       }
       stages{
             stage('system-info'){
+                   steps{
+                        pipeline{
+      agent any
+      parameters{
+            choice(
+                  name: 'ENVIRONMENT',
+                  choices:['development','production']
+            )
+            booleanParam(
+                  name:'RUN_TESTS',
+                  defaultValue: true
+            )
+      }
+      stages{
+            stage('build'){
                   steps{
-                        echo "checking system-info for the user ${NAME} and the roll no ${ROLL_NO}"
-                        sh '''
-                           pwd
-                           whoami
-                           '''
+                       echo 'building ...'
+                  }
+            }
+
+             stage('test'){
+                  when{
+                        expression{
+                              params.RUN_TESTS
+                        }
+                  }
+                  steps{
+                        echo 'testing files'
+                        
+                  }
+            }
+
+             stage('deployment'){
+                  steps{
+                        echo "deployment for ${params.ENVIRONMENT}"
+                        
+                  }
+            }
+
+      }
+}
                   }
             }
 
