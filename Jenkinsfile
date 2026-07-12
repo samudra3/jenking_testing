@@ -12,6 +12,9 @@ pipeline{
       )
   
   }
+  environment{
+    password= credentials('secret_id')
+  }
   stages{
     stage('system-info'){
       when{
@@ -20,7 +23,7 @@ pipeline{
         }
       }
       steps{
-        echo "the mode is ${params.mode}"
+        echo "the mode is ${password}"
       }
     }
   }
