@@ -23,7 +23,7 @@ pipeline{
         }
       }
       steps{
-        echo "the mode is ${password}"
+        sh "exit 1"
       }
     }
   }
