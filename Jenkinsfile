@@ -1,11 +1,16 @@
 pipeline{
   agent any
+  parameters{
+    string(
+      name: 'mode',
+      defaultValue: 'testing',
+      description: 'choose the mode of the build'
+      )
+  }
   stages{
     stage('system-info'){
       steps{
-        sh 'whoami'
-        sh 'pwd'
-        sh 'ls -la'
+        echo "the mode is ${params.mode}"
       }
     }
   }
