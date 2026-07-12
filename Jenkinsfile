@@ -27,4 +27,15 @@ pipeline{
       }
     }
   }
+  post {
+    success {
+      echo 'pipeline finished successfully'
+    }
+    failure{
+      echo 'pipeline failed'
+    }
+    always {
+      echo 'cleaning the workspace'
+    }
+  }
 }
