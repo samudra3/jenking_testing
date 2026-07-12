@@ -7,7 +7,7 @@ pipeline{
      description:'choose the correct mode'
      )
     booleanParam(
-      name: 'isTest'
+      name: 'isTest',
       defaultValue: true
       )
   
