@@ -13,7 +13,7 @@ pipeline{
   
   }
   environment{
-    password= credentials('secret_id')
+    password = credentials('secret_id')
   }
   stages{
     stage('system-info'){
